@@ -13,7 +13,7 @@ export default function () {
 
       const userId = req.params.id
       if (userId) {
-        const user = users.find((user) => user.id === parseInt(userId));
+        const user = users.find((user: any) => user.id === parseInt(userId));
         if (user) {
           res.status(200).json(user);
           return;

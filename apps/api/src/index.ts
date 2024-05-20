@@ -4,7 +4,7 @@ import { initialize } from 'express-openapi';
 import { setupSwagger } from './swagger';
 import { Application } from 'express';
 
-const app: Application = createServer()
+export const app: Application = createServer()
 
 initialize({
             app,
@@ -15,5 +15,3 @@ initialize({
           }).then( openapi => {
             setupSwagger(app, openapi.apiDoc);
           })
-
-export default app;
