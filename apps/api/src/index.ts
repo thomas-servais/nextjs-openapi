@@ -4,7 +4,6 @@ import { initialize } from 'express-openapi';
 import { setupSwagger } from './swagger';
 import { Application } from 'express';
 
-
 const app: Application = createServer()
 
 initialize({
