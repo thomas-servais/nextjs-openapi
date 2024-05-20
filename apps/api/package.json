@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "build": "tsup && npm run copy-files",
-    "copy-files": "cp ./src/api-definition-base.yml ./dist/",
-    "start": "node dist/index.js",
+    "build": "tsc && npm run copy-files",
+    "copy-files": "cp ./src/api-definition-base.yml ./api/",
+    "start": "node api/index.js",
     "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
