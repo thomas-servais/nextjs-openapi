@@ -16,7 +16,5 @@ initialize({
           }).then( openapi => {
             setupSwagger(app, openapi.apiDoc);
           })
-    
-          
 
-module.exports = app;
+export default app;
