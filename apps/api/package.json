@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/api/index.ts",
     "build": "tsc && npm run copy-files",
-    "copy-files": "cp ./src/api-definition-base.yml ./api/",
-    "start": "node api/index.js",
+    "copy-files": "cp ./src/api/api-definition-base.yml ./dist/api/",
+    "start": "node dist/api/index.js",
     "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {

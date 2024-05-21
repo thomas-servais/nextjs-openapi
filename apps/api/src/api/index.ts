@@ -10,8 +10,8 @@ initialize({
             app,
             docsPath: "/api-definition",
             exposeApiDocs: true,
-            apiDoc: "./dist/api-definition-base.yml",
-            paths: "./dist/paths",
+            apiDoc: "./dist/api/api-definition-base.yml",
+            paths: "./dist/api/paths",
           }).then( openapi => {
             setupSwagger(app, openapi.apiDoc);
           })
