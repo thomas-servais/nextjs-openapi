@@ -6,6 +6,12 @@ import { Application } from 'express';
 import path  from 'path';
 import fs  from 'fs';
 
+import usersList from './paths/users'
+import usersOne from './paths/users/{id}'
+
+console.log('usersList', usersList)
+console.log('usersOne', usersOne)
+
 export const app: Application = createServer()
 
 
@@ -33,15 +39,17 @@ const exists4 = fs.existsSync(path.resolve(process.cwd(), './apps/api/api/paths/
 logs.push('[TEST] absolutePath '+absolutePath+' exists='+exists+' exists2='+exists2+' exists3='+exists3+' exists4='+exists4)
 try {
 
-
+  app.use((req, res, next) => {
+    logs.push('new request '+req.url)
+    next();
+  });
 
 initialize({
             app,
             docsPath: "/api-definition",
             exposeApiDocs: true,
             apiDoc: "./apps/api/api/api-definition-base.yml",
-            paths: "./apps/api/api/paths",
-          }).then( openapi => {
+            paths: "./apps/api/api/paths",          }).then( openapi => {
             logs.push('openapi initialized')
             logs.push(JSON.stringify(openapi.apiDoc))
             setupSwagger(app, openapi.apiDoc);
@@ -55,7 +63,7 @@ initialize({
         }
 
         app.get('/logs', function(req, res){
-          res.status(404).json({logs: logs});
+          res.json({logs: logs});
         });
 
 
