@@ -8,8 +8,7 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsc",
-    "dev": "tsup --watch"
+    "build": "tsc"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
